@@ -103,7 +103,7 @@ int tuntap_open(tuntap_dev *device,
 
   device->ip_addr = inet_addr(device_ip);
   device->device_mask = inet_addr(device_mask);
-  read_mac(dev, (char*)device->mac_addr);
+  read_mac(ifr.ifr_name, (char*)device->mac_addr);
   return(device->fd);
 }
 

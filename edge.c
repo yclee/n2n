@@ -1152,7 +1152,7 @@ extern int useSyslog;
 int main(int argc, char* argv[]) {
   int opt=0;
   u_int16_t local_port = 0 /* any port */;
-  char *tuntap_dev_name = "edge0";
+  char *tuntap_dev_name = "";
   char *ip_addr = NULL;
   char  netmask[N2N_NETMASK_STR_SIZE]="255.255.255.0";
   int   mtu = DEFAULT_MTU;
@@ -1313,9 +1313,6 @@ effectiveargv[effectiveargc] = 0;
   }
 
   if(!(
-#ifdef __linux__
-       tuntap_dev_name &&
-#endif
        eee.community_name &&
        ip_addr &&
        eee.supernode.addr_type.v4_addr &&
