@@ -22,7 +22,7 @@ function exit_fail()
 }
 
 PACKAGE="n2n"
-PKG_VERSION="1.3"
+PKG_VERSION="2.0"
 PKG_AND_VERSION="${PACKAGE}-${PKG_VERSION}"
 
 TEMPDIR="tmp"
@@ -37,15 +37,25 @@ minilzo.c
 minilzo.h
 n2n.c
 n2n.h
+n2n_keyfile.c
+n2n_keyfile.h
 n2n.spec
-supernode.c
+n2n_transforms.h
+n2n_wire.h
+sn.c
+transform_aes.c
+transform_null.c
+transform_tf.c
 tuntap_linux.c
 tuntap_freebsd.c
+tuntap_netbsd.c
 tuntap_osx.c
 twofish.c
 twofish.h
+wire.c
 edge.8
 supernode.1
+n2n_v2.7
 debian/changelog
 debian/compat
 debian/control

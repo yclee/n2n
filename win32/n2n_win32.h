@@ -1,6 +1,6 @@
 /*
 
-	(C) 2007 - Luca Deri <deri@ntop.org>
+	(C) 2007-09 - Luca Deri <deri@ntop.org>
 
 */
 
@@ -11,8 +11,27 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
+#include <winsock2.h>
+#include <windows.h>
+
 #include "wintap.h"
 
+#include "getopt.h"
+
+typedef unsigned long in_addr_t;
+typedef __int8 int8_t;
+typedef __int16 int16_t;
+typedef __int32 int32_t;
+typedef __int64 int64_t;
+typedef unsigned __int8 uint8_t;
+typedef unsigned __int16 uint16_t;
+typedef unsigned __int32 uint32_t;
+typedef unsigned __int64 uint64_t;
+typedef int ssize_t;
+
+#define EAFNOSUPPORT   WSAEAFNOSUPPORT 
+#define MAX(a,b) (a > b ? a : b)
+#define MIN(a,b) (a < b ? a : b)
 typedef unsigned int u_int32_t;
 typedef unsigned short u_int16_t;
 typedef unsigned char u_int8_t;
@@ -25,15 +44,18 @@ typedef char int8_t;
 
 #define socklen_t int
 
-#define ETHER_ADDR_LEN 6
+#define ETH_ADDR_LEN 6
 /*                                                                                                                                                                                     
  * Structure of a 10Mb/s Ethernet header.                                                                                                                                              
  */
-struct  ether_header {
-        u_char  ether_dhost[ETHER_ADDR_LEN];
-        u_char  ether_shost[ETHER_ADDR_LEN];
-        u_short ether_type;
+struct ether_hdr
+{
+    uint8_t  dhost[ETH_ADDR_LEN];
+    uint8_t  shost[ETH_ADDR_LEN];
+    uint16_t type;                /* higher layer protocol encapsulated */
 };
+
+typedef struct ether_hdr ether_hdr_t;
 
 /* ************************************* */
 
@@ -70,5 +92,8 @@ typedef struct tuntap_dev {
 	u_int32_t     ip_addr, device_mask;
 	u_int         mtu;
 } tuntap_dev;
+
+#define index(a, b) strchr(a, b)
+
 
 #endif

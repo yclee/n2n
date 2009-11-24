@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="edge"
 	ProjectGUID="{4911ADD4-08A3-4C9F-B9C9-9492DA10D01D}"
 	RootNamespace="n2n"
@@ -21,7 +21,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="1"
+			CharacterSet="2"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Ws2_32.lib Advapi32.lib"
+				AdditionalDependencies="Ws2_32.lib Advapi32.lib libeay32.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -97,7 +97,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="1"
+			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -117,6 +117,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				Optimization="2"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
@@ -135,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Ws2_32.lib Advapi32.lib"
+				AdditionalDependencies="Ws2_32.lib Advapi32.lib libeay32.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -177,35 +178,55 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\src\edge.c"
+				RelativePath="..\..\edge.c"
 				>
 			</File>
 			<File
-				RelativePath="..\src\win32\getopt.c"
+				RelativePath="..\getopt.c"
 				>
 			</File>
 			<File
-				RelativePath="..\src\win32\getopt1.c"
+				RelativePath="..\getopt1.c"
 				>
 			</File>
 			<File
-				RelativePath="..\src\minilzo.c"
+				RelativePath="..\..\minilzo.c"
 				>
 			</File>
 			<File
-				RelativePath="..\src\n2n.c"
+				RelativePath="..\..\n2n.c"
 				>
 			</File>
 			<File
-				RelativePath="..\src\twofish.c"
+				RelativePath="..\..\n2n_keyfile.c"
 				>
 			</File>
 			<File
-				RelativePath=".\version.c"
+				RelativePath="..\..\transform_aes.c"
 				>
 			</File>
 			<File
-				RelativePath="..\src\win32\wintap.c"
+				RelativePath="..\..\transform_null.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\transform_tf.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\twofish.c"
+				>
+			</File>
+			<File
+				RelativePath="..\version-msvc.c"
+				>
+			</File>
+			<File
+				RelativePath="..\wintap.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\wire.c"
 				>
 			</File>
 		</Filter>
@@ -215,35 +236,47 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\src\win32\getopt.h"
+				RelativePath="..\getopt.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\lzoconf.h"
+				RelativePath="..\..\lzoconf.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\lzodefs.h"
+				RelativePath="..\..\lzodefs.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\minilzo.h"
+				RelativePath="..\..\minilzo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\n2n.h"
+				RelativePath="..\..\n2n.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\win32\n2n_win32.h"
+				RelativePath="..\..\n2n_keyfile.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\twofish.h"
+				RelativePath="..\..\n2n_transforms.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\win32\wintap.h"
+				RelativePath="..\n2n_win32.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\n2n_wire.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\twofish.h"
+				>
+			</File>
+			<File
+				RelativePath="..\wintap.h"
 				>
 			</File>
 		</Filter>
@@ -254,7 +287,11 @@
 			>
 		</Filter>
 		<File
-			RelativePath=".\ReadMe.txt"
+			RelativePath="..\..\HACKING"
+			>
+		</File>
+		<File
+			RelativePath="..\..\README"
 			>
 		</File>
 	</Files>

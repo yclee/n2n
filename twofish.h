@@ -49,6 +49,15 @@
 #include "win32/n2n_win32.h"
 #endif
 
+/* Not shipped with Visual Studio (as stated by the stdint.h wikipedia page) */
+#ifndef _MSC_VER
+#include <stdint.h> /* defines uintN_t types */
+#endif
+/* The following are redefinitions if sys/types.h has been included too. That's
+ * OK.*/
+typedef uint32_t u_int32_t;
+typedef uint8_t  u_int8_t;
+
 /* Constants */
 
 #define TwoFish_DEFAULT_PW		"SnortHas2FishEncryptionRoutines!" /* default password (not more than 32 chars) */
